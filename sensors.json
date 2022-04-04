@@ -1,0 +1,50 @@
+[{
+        "senzor": "dht22",
+        "parametri": ["TSoil002", "HSoil002"],
+        "model": "ASAIR AM2302 (DHT22), python module Adafruit AM2302",
+        "opis": ["temperatura zemlje na 2cm", "vlaznost zemlje na 2cm"],
+        "gpio_data_pin": [temperature_pin, humidity_pin]
+    },
+    {
+        "senzor": "dht22",
+        "parametri": ["TSoil005", "HSoil005"],
+        "model": "ASAIR AM2302 (DHT22), python module Adafruit AM2302",
+        "opis": ["temperatura zemlje na 5cm", "vlaznost zemlje na 5cm"],
+        "gpio_data_pin": [temperature_pin, humidity_pin]
+    },
+    {
+        "senzor": "dht22",
+        "parametri": ["TSoil010", "HSoil010"],
+        "model": "ASAIR AM2302 (DHT22), python module Adafruit AM2302",
+        "opis": ["temperatura zemlje na 10cm", "vlaznost zemlje na 10cm"],
+        "gpio_data_pin": [temperature_pin, humidity_pin]
+    },
+    {
+        "senzor": "dht22",
+        "parametri": ["TSoil020", "HSoil020"],
+        "model": "ASAIR AM2302 (DHT22), python module Adafruit AM2302",
+        "opis": ["temperatura zemlje na 20cm", "vlaznost zemlje na 20cm"],
+        "gpio_data_pin": [temperature_pin, humidity_pin]
+    },
+    {
+        "senzor": "dht22",
+        "parametri": ["TSoil030", "HSoil030"],
+        "model": "ASAIR AM2302 (DHT22), python module Adafruit AM2302",
+        "opis": ["temperatura zemlje na 30cm", "vlaznost zemlje na 30cm"],
+        "gpio_data_pin": [temperature_pin, humidity_pin]
+    },
+    {
+        "senzor": "dht22",
+        "parametri": ["TSoil050", "HSoil050"],
+        "model": "ASAIR AM2302 (DHT22), python module Adafruit AM2302",
+        "opis": ["temperatura zemlje na 50cm", "vlaznost zemlje na 50cm"],
+        "gpio_data_pin": [temperature_pin, humidity_pin]
+    },
+    {
+        "senzor": "dht22",
+        "parametri": ["TSoil100", "HSoil100"],
+        "model": "ASAIR AM2302 (DHT22), python module Adafruit AM2302",
+        "opis": ["temperatura zemlje na 100cm", "vlaznost zemlje na 100cm"],
+        "gpio_data_pin": [temperature_pin, humidity_pin]
+    }
+]

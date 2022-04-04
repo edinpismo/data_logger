@@ -1,0 +1,13 @@
+{
+    "metadata": {
+        "id": "test_station_01",
+        "measurement_id": "measurement_id",
+        "locator": "locator",
+        "report_time": "False",
+        "timezone": "UTC+1"
+    },
+    "setup": {
+        "measurement_minute": ["00", "10", "20", "30", "40", "50"],
+        "report_minute": ["00"]
+    }
+}
