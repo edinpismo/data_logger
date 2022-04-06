@@ -1,0 +1,71 @@
+This set of scripts run Raspberry Pi as data logger of soil temperature/humidity
+on seven layers. Agrometeorological measurements provide reading of temperature
+on geothermometers on 2, 5, 10, 20, 30, 50 and 100cm deepness. Most of automatic
+weather stations (AWS) doesn't have these measurement, you need to order it from
+manufacturer. That increase cost of AWS a lot.
+
+Aim of this project is to use single board computer (Raspberry Pi in this case) as
+data logger and cheep temperature/humidity sensors (AM2302 in this case) as
+measurement units. Also, we carry of World Meteorological Organization’s (WMO)
+standard of sampling frequency. 
+
+Time synchronization, redundant power supply, cooling/heating of Raspberry Pi and
+other software/hardware elements will not be covered in this material.
+
+Before you start to run scripts you have to install Raspberry Pi OS, sometimes
+called Raspbian. It include python by default so you need to select binary path
+of it (use linux which command) and change first line of every py script.
+
+We use Python language for setting up data logger so you need to install module of
+sensors which you attend to use and import it in script.
+
+Sensors are connected on GPIO of Raspberry Pi. We use 3.3V and GND for powering
+sensors and GPIO pins as data pins. These data pins must be selected in sensors
+conf file.
+
+Data logger has four files:
+1. awos_soil.py - script for reading sensor outputs and calculate base statistics.
+This is core of measurements. Current configuration has output files in JSON format.
+2. send_data.py - script for sending files to collection server.
+3. sensors.json - JSON file with configuration of sensors
+4. station.json - JSON file with configuration of station
+
+TODO
+
+You have to change data logger files for your own configuration. For this follow
+instructions bellow
+
+1. Edit file awos_soil.py at line 72 with absolute path of awos_soil.py script
+
+2. Edit file send_data.py at:
+- line 11 with absolute path of send_soil.py
+- line 13 with absolute path of directory contains data files
+- line 15 with IP and PORT of server where you send data.
+We use low level socked connection for transfer files. You need to have server
+with configuration to accept socked requests and receive files.
+We will not cover this
+
+3. File sensors.json has number of blocks corresponding to number of sensors
+attached on Raspberry Pi. Edit file with name-value pairs:
+- Name “senzor” is unique name of sensor, by this value is recognized
+in other script
+- Value of “parametri” is list of measure parameters, appearing in output
+JSON file
+- Value of “model” is just additional information about sensor
+- Key “opis” has list as value with additional information about corresponding
+parameters
+- Key “gpio_data_pin” has list as value with GPIO pin(s) of Raspberry Pi on
+which data pin of sensor is connected.
+
+4. File station.json has two blocks: metadata and setup.
+In metadata block you have to set:
+- “id” with unique value. This will appear as part of output filename
+- “measurement_id” is also unique value of measurement parameters set. You can
+measure for example pressure, wind characteristics etc. and this value describe
+class of measurement set. This value is part of output filename
+- “locator” is also part of output file name
+- “timezone” describe which timezone station belong/make measurement
+- “measurement_minute” has list as value with minutes in which station will make
+measure and do defined statistics. Results of these actions will be reported in
+dataset sections of output files
+- “report_minute” has list as value with minute when output file will be created 
